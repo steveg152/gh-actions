@@ -4,7 +4,7 @@ on:
     types:
       - opened
     paths:
-      - "./01 Events"
+      - "./01 Events/**"
   workflow_dispatch:
 jobs:
   deploy:
