@@ -1,0 +1,27 @@
+name: Lint, Test and Deploy
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "04 Practice Project/**"
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm install
+        working-directory: ./04 Practice Project
+      - name: Lint
+        run: npm run lint
+        working-directory: ./04 Practice Project
+      - name: test
+        run: npm run test
+        working-directory: ./04 Practice Project
+      - name: build
+        run: npm run build
+        working-directory: ./04 Practice Project
+      - name: Deploy
+        run: echo "Deploying"
+        working-directory: ./04 Practice Project
