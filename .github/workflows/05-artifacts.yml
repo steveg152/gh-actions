@@ -34,12 +34,17 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: production
-          path: |
-            ./05-Artifacts/dist
-            ./05-Artifacts/package.json
+          path: ./05-Artifacts/dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Download production artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: production
+      - name: Output files
+        run: ls -l
       - name: Deploy
         run: echo "Deploying..."
