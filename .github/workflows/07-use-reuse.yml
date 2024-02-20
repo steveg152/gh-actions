@@ -80,6 +80,8 @@ jobs:
     uses: ./.github/workflows/07-reusable.yml
     with:
       artifactName: dist-files
+    secrets:
+      GITHUB_TOKEN: test-token
   report:
     needs: [lint, deploy]
     if: failure()
