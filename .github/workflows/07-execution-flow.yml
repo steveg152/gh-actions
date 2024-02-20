@@ -1,5 +1,6 @@
 name: Website Deployment
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
@@ -84,6 +85,7 @@ jobs:
       - name: Deploy
         run: echo "Deploying..."
   report:
+    needs: [lint, deploy]
     if: failure()
     runs-on: ubuntu-latest
     steps:
